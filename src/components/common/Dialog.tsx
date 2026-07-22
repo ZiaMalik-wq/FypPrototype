@@ -55,7 +55,7 @@ export const Dialog: React.FC<DialogProps> = ({
         )}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-start justify-between p-5 border-b border-surface-border">
+        <div className="flex items-start justify-between p-4 sm:p-5 border-b border-surface-border">
           <div>
             <h3 className="text-lg font-semibold text-text-primary tracking-tight">{title}</h3>
             {description && <p className="text-sm text-text-secondary mt-1">{description}</p>}
@@ -69,10 +69,10 @@ export const Dialog: React.FC<DialogProps> = ({
           </button>
         </div>
 
-        <div className="p-6 overflow-y-auto space-y-4 flex-1">{children}</div>
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4 flex-1">{children}</div>
 
         {footer && (
-          <div className="flex items-center justify-end gap-3 p-4 bg-slate-50 border-t border-surface-border">
+          <div className="flex items-center justify-end gap-3 p-3 sm:p-4 bg-slate-50 border-t border-surface-border">
             {footer}
           </div>
         )}

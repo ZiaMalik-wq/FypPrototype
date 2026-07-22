@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 
 export const AppLayout: React.FC = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCommandKOpen, setIsCommandKOpen] = useState(false);
 
   return (
@@ -19,20 +20,25 @@ export const AppLayout: React.FC = () => {
       {/* Command K Search Modal */}
       <CommandKModal isOpen={isCommandKOpen} onClose={() => setIsCommandKOpen(false)} />
 
-      {/* Persistent Sidebar */}
+      {/* Persistent / Drawer Sidebar */}
       <Sidebar
         isCollapsed={isSidebarCollapsed}
         onToggleCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+        isMobileOpen={isMobileMenuOpen}
+        onCloseMobile={() => setIsMobileMenuOpen(false)}
       />
 
       {/* Main Container Area */}
       <div
         className={cn(
-          'flex-1 flex flex-col transition-all duration-300 min-h-screen',
-          isSidebarCollapsed ? 'pl-20' : 'pl-70'
+          'flex-1 flex flex-col transition-all duration-300 min-h-screen pl-0',
+          isSidebarCollapsed ? 'lg:pl-20' : 'lg:pl-70'
         )}
       >
-        <TopNav onOpenCommandK={() => setIsCommandKOpen(true)} />
+        <TopNav
+          onOpenCommandK={() => setIsCommandKOpen(true)}
+          onToggleMobileMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        />
 
         <main className="flex-1 p-6 md:p-8 max-w-7xl w-full mx-auto space-y-6">
           <Breadcrumb />

@@ -48,7 +48,7 @@ export const StudentDashboard: React.FC = () => {
       </div>
 
       {/* KPI Widgets Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <MetricCard
           title="Skill Match Score"
           value={`${matchScore}%`}
@@ -99,7 +99,7 @@ export const StudentDashboard: React.FC = () => {
         {/* Left Column (70%) */}
         <div className="lg:col-span-8 space-y-6">
           {/* Skill Gap & Radar Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-card border border-surface-border rounded-md p-6 shadow-subtle">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-surface-card border border-surface-border rounded-md p-4 sm:p-6 shadow-subtle">
             <div className="flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-surface-border pb-6 md:pb-0 md:pr-6">
               <h3 className="text-sm font-semibold text-text-primary self-start mb-2">Overall Market Readiness</h3>
               <GaugeChart score={matchScore} title="Skill Match Score" size={200} />
@@ -121,7 +121,7 @@ export const StudentDashboard: React.FC = () => {
 
           {/* AI Recommended Learning Actions */}
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
+            <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <CardTitle className="flex items-center space-x-2 text-base">
                   <Sparkle className="w-4 h-4 text-brand-600" />
@@ -137,11 +137,11 @@ export const StudentDashboard: React.FC = () => {
               {recommendations.slice(0, 3).map((rec) => (
                 <div
                   key={rec.id}
-                  className="p-4 border border-surface-border rounded-sm bg-slate-50/50 hover:bg-slate-50 transition-colors flex items-start justify-between gap-4"
+                  className="p-4 border border-surface-border rounded-sm bg-slate-50/50 hover:bg-slate-50 transition-colors flex flex-col sm:flex-row sm:items-start justify-between gap-4"
                 >
                   <div className="space-y-1">
-                    <div className="flex items-center space-x-2">
-                      <span className="font-semibold text-sm text-text-primary">{rec.skillName}</span>
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="font-semibold text-sm text-text-primary mr-1">{rec.skillName}</span>
                       <Badge variant={rec.priority === 'High' ? 'danger' : 'warning'} size="sm">
                         {rec.priority} Priority
                       </Badge>
@@ -149,7 +149,7 @@ export const StudentDashboard: React.FC = () => {
                     </div>
                     <p className="text-xs text-text-secondary">{rec.reasoning}</p>
                   </div>
-                  <Button size="sm" variant="outline" onClick={() => navigate('/recommendations')}>
+                  <Button size="sm" variant="outline" className="w-full sm:w-auto shrink-0 animate-pulse-subtle" onClick={() => navigate('/recommendations')}>
                     Explore Course
                   </Button>
                 </div>
