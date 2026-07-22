@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { markAsRead, markAllAsRead } from '@/store/slices/notificationSlice';
 import { logout } from '@/store/slices/authSlice';
-import { ArrowSquareOut, Bell, CheckCircle, Gear, MagnifyingGlass, Question, Shield, SignOut, User as UserIcon } from '@phosphor-icons/react';
+import { ArrowSquareOut, Bell, CheckCircle, Gear, MagnifyingGlass, Question, Shield, SignOut, User as UserIcon, List } from '@phosphor-icons/react';
 
 export interface TopNavProps {
   onOpenCommandK: () => void;
+  onToggleMobileMenu: () => void;
 }
 
-export const TopNav: React.FC<TopNavProps> = ({ onOpenCommandK }) => {
+export const TopNav: React.FC<TopNavProps> = ({ onOpenCommandK, onToggleMobileMenu }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { user } = useAppSelector(state => state.auth);
@@ -21,18 +22,26 @@ export const TopNav: React.FC<TopNavProps> = ({ onOpenCommandK }) => {
   const unreadCount = notifications.filter(n => !n.isRead).length;
 
   return (
-    <header className="h-16 bg-surface-card border-b border-surface-border sticky top-0 z-20 px-6 flex items-center justify-between shadow-subtle">
-      {/* Global MagnifyingGlass Bar Button */}
-      <div className="flex items-center flex-1 max-w-md">
+    <header className="h-16 bg-surface-card border-b border-surface-border sticky top-0 z-20 px-4 sm:px-6 flex items-center justify-between shadow-subtle">
+      {/* Mobile Drawer Trigger & Global Search */}
+      <div className="flex items-center flex-1 max-w-md mr-4">
+        <button
+          onClick={onToggleMobileMenu}
+          className="p-2 -ml-2 text-text-secondary hover:text-brand-600 hover:bg-slate-50 rounded-sm lg:hidden focus-ring mr-2 shrink-0"
+          aria-label="Open navigation menu"
+        >
+          <List className="w-5 h-5" />
+        </button>
+
         <button
           onClick={onOpenCommandK}
           className="w-full flex items-center justify-between px-3.5 py-2 bg-slate-50 border border-surface-border rounded-sm text-sm text-text-muted hover:bg-slate-100 hover:border-slate-300 transition-colors focus-ring"
         >
-          <div className="flex items-center space-x-2">
-            <MagnifyingGlass className="w-4 h-4 text-text-muted" />
-            <span>MagnifyingGlass features, skills, reports...</span>
+          <div className="flex items-center space-x-2 truncate">
+            <MagnifyingGlass className="w-4 h-4 text-text-muted shrink-0" />
+            <span className="truncate">Search features, skills, reports...</span>
           </div>
-          <kbd className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-semibold text-text-muted bg-white border border-slate-200 rounded-xs shadow-2xs">
+          <kbd className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-semibold text-text-muted bg-white border border-slate-200 rounded-xs shadow-2xs shrink-0">
             Ctrl + K
           </kbd>
         </button>

@@ -42,6 +42,7 @@ export const ReportsPage: React.FC = () => {
 
         <Button
           size="sm"
+          className="w-full sm:w-auto"
           onClick={() => toast.success('New report generated and added to library.')}
           leftIcon={<Plus className="w-4 h-4" />}
         >
@@ -49,13 +50,13 @@ export const ReportsPage: React.FC = () => {
         </Button>
       </div>
 
-      {/* Toolbar MagnifyingGlass */}
+      {/* Toolbar Search */}
       <div className="flex items-center justify-between bg-surface-card border border-surface-border p-4 rounded-md shadow-subtle">
         <div className="relative w-full max-w-md">
           <MagnifyingGlass className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
           <input
             type="text"
-            placeholder="MagnifyingGlass reports by title or type..."
+            placeholder="Search reports by title or type..."
             value={searchQuery}
             onChange={e => dispatch(setSearchQuery(e.target.value))}
             className="w-full pl-9 pr-3 py-1.5 text-sm bg-slate-50 border border-surface-border rounded-sm focus-ring placeholder:text-text-muted"

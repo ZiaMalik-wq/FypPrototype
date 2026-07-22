@@ -7,9 +7,11 @@ import { Brain, ChartBar, CaretLeft, CaretRight, Database, FileText, Gear, Pulse
 export interface SidebarProps {
   isCollapsed: boolean;
   onToggleCollapse: () => void;
+  isMobileOpen: boolean;
+  onCloseMobile: () => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggleCollapse }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMobile }) => {
   const { user } = useAppSelector(state => state.auth);
   const isAdminRole = user?.role === 'SystemAdmin';
 
@@ -38,16 +40,27 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggleCollapse 
   const navItems = isAdminRole ? adminNavItems : studentNavItems;
 
   return (
-    <aside
-      className={cn(
-        'fixed top-0 left-0 bottom-0 z-30 bg-surface-sidebar border-r border-slate-800/40 transition-all duration-300 flex flex-col group/sidebar',
-        isCollapsed ? 'w-20' : 'w-70'
+    <>
+      {/* Mobile Backdrop Overlay */}
+      {isMobileOpen && (
+        <div
+          className="fixed inset-0 bg-slate-900/60 z-30 lg:hidden animate-in fade-in duration-200"
+          onClick={onCloseMobile}
+        />
       )}
-    >
+
+      <aside
+        className={cn(
+          'fixed top-0 left-0 bottom-0 z-40 bg-surface-sidebar border-r border-slate-800/40 transition-all duration-300 flex flex-col group/sidebar',
+          isCollapsed ? 'lg:w-20' : 'lg:w-70',
+          isMobileOpen ? 'translate-x-0 w-70' : '-translate-x-full lg:translate-x-0',
+          isCollapsed ? 'w-20' : 'w-70'
+        )}
+      >
       {/* Floating Border Toggle Handle */}
       <button
         onClick={onToggleCollapse}
-        className="absolute -right-3 top-5 w-6 h-6 rounded-full border border-slate-800 bg-[#0B132B] hover:bg-[#1C2541] hover:text-white text-slate-400 flex items-center justify-center shadow-subtle transition-all duration-150 focus-ring z-40 hover:scale-110"
+        className="absolute -right-3 top-5 w-6 h-6 rounded-full border border-slate-800 bg-[#0B132B] hover:bg-[#1C2541] hover:text-white text-slate-400 hidden lg:flex items-center justify-center shadow-subtle transition-all duration-150 focus-ring z-40 hover:scale-110"
         title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
         aria-label={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
       >
@@ -93,6 +106,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggleCollapse 
             <NavLink
               key={item.path}
               to={item.path}
+              onClick={onCloseMobile}
               title={isCollapsed ? item.title : undefined}
               className={({ isActive }) =>
                 cn(
@@ -137,6 +151,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggleCollapse 
           )}
         </div>
       </div>
-    </aside>
+      </aside>
+    </>
   );
 };

@@ -32,13 +32,16 @@ export const MarketTrendsPage: React.FC = () => {
         </div>
 
         {/* Global Market Funnel Bar */}
-        <div className="flex items-center space-x-2">
-          <div className="flex items-center space-x-1 bg-slate-50 border border-surface-border px-3 py-1.5 rounded-sm text-xs">
-            <Calendar className="w-3.5 h-3.5 text-text-muted" />
+        <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+          <div className="flex items-center space-x-1 bg-slate-50 border border-surface-border px-3 py-1.5 rounded-sm text-xs w-full sm:w-auto justify-between sm:justify-start">
+            <div className="flex items-center space-x-1">
+              <Calendar className="w-3.5 h-3.5 text-text-muted" />
+              <span className="text-text-secondary mr-1">Range:</span>
+            </div>
             <select
               value={dateRange}
               onChange={e => setDateRange(e.target.value)}
-              className="bg-transparent text-text-primary font-medium focus:outline-none"
+              className="bg-transparent text-text-primary font-semibold focus:outline-none cursor-pointer"
             >
               <option>Last 30 Days</option>
               <option>Last 90 Days</option>
@@ -46,12 +49,15 @@ export const MarketTrendsPage: React.FC = () => {
             </select>
           </div>
 
-          <div className="flex items-center space-x-1 bg-slate-50 border border-surface-border px-3 py-1.5 rounded-sm text-xs">
-            <MapPin className="w-3.5 h-3.5 text-text-muted" />
+          <div className="flex items-center space-x-1 bg-slate-50 border border-surface-border px-3 py-1.5 rounded-sm text-xs w-full sm:w-auto justify-between sm:justify-start">
+            <div className="flex items-center space-x-1">
+              <MapPin className="w-3.5 h-3.5 text-text-muted" />
+              <span className="text-text-secondary mr-1">Region:</span>
+            </div>
             <select
               value={regionFilter}
               onChange={e => setRegionFilter(e.target.value)}
-              className="bg-transparent text-text-primary font-medium focus:outline-none"
+              className="bg-transparent text-text-primary font-semibold focus:outline-none cursor-pointer"
             >
               <option>All Pakistan</option>
               <option>Islamabad / Rawalpindi</option>
@@ -63,7 +69,7 @@ export const MarketTrendsPage: React.FC = () => {
       </div>
 
       {/* KPI Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <MetricCard
           title="Total Job Listings"
           value={marketData.totalJobsAnalyzed.toLocaleString()}
@@ -95,7 +101,7 @@ export const MarketTrendsPage: React.FC = () => {
         <MetricCard
           title="Weekly Hiring Index"
           value={`+${marketData.weeklyGrowthPercentage}%`}
-          subtitle="Demand Velocity"
+          subtitle="Weekly Momentum"
           trend="up"
           icon={<TrendUp className="w-5 h-5 text-semantic-success" />}
         />
@@ -106,12 +112,12 @@ export const MarketTrendsPage: React.FC = () => {
         {/* Left Column (60%): Line Chart & Horizontal Bar Chart */}
         <div className="lg:col-span-7 space-y-6">
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
+            <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
                 <CardTitle className="text-base">Quarterly Technology Growth Trends</CardTitle>
                 <CardDescription>Job posting frequency trends for key stacks</CardDescription>
               </div>
-              <Badge variant="brand">Q3 2025 - Q2 2026</Badge>
+              <Badge variant="brand" className="w-fit">Q3 2025 - Q2 2026</Badge>
             </CardHeader>
             <CardContent>
               <LineTrendChart />
