@@ -4,7 +4,7 @@ import { Badge } from '@/components/common/Badge';
 import { AreaVolumeChart } from '@/components/charts/AreaVolumeChart';
 import { LineTrendChart } from '@/components/charts/LineTrendChart';
 import { DonutChart } from '@/components/charts/DonutChart';
-import { BarChart3, Users, GraduationCap } from 'lucide-react';
+import { ChartBar, GraduationCap, Users } from '@phosphor-icons/react';
 
 export const AdminAnalytics: React.FC = () => {
   return (

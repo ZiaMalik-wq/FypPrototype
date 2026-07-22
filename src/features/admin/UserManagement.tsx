@@ -7,16 +7,7 @@ import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { Dialog } from '@/components/common/Dialog';
 import { toast } from 'sonner';
-import {
-  Users,
-  Search,
-  UserCheck,
-  Shield,
-  Ban,
-  Edit2,
-  Filter,
-  CheckCircle2
-} from 'lucide-react';
+import { Prohibit, CheckCircle, Funnel, MagnifyingGlass, Pencil, Shield, UserCheck, Users } from '@phosphor-icons/react';
 
 export const UserManagement: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -65,13 +56,13 @@ export const UserManagement: React.FC = () => {
         </div>
       </div>
 
-      {/* Toolbar Filter */}
+      {/* Toolbar Funnel */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-card border border-surface-border p-4 rounded-md shadow-subtle">
         <div className="relative w-full max-w-md">
-          <Search className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
+          <MagnifyingGlass className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
           <input
             type="text"
-            placeholder="Search by name, email, or university..."
+            placeholder="MagnifyingGlass by name, email, or university..."
             value={userSearchQuery}
             onChange={e => dispatch(setUserSearchQuery(e.target.value))}
             className="w-full pl-9 pr-3 py-1.5 text-sm bg-slate-50 border border-surface-border rounded-sm focus-ring placeholder:text-text-muted"
@@ -79,7 +70,7 @@ export const UserManagement: React.FC = () => {
         </div>
 
         <div className="flex items-center space-x-2 w-full sm:w-auto">
-          <span className="text-xs font-semibold text-text-secondary">Role Filter:</span>
+          <span className="text-xs font-semibold text-text-secondary">Role Funnel:</span>
           <select
             value={selectedRoleFilter}
             onChange={e => dispatch(setSelectedRoleFilter(e.target.value))}
@@ -145,14 +136,14 @@ export const UserManagement: React.FC = () => {
                       className="p-1.5 text-text-secondary hover:text-brand-600 hover:bg-brand-50 rounded-xs transition-colors"
                       title="Edit Role"
                     >
-                      <Edit2 className="w-4 h-4" />
+                      <Pencil className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => handleToggleSuspension(user)}
                       className={`p-1.5 rounded-xs transition-colors ${user.isSuspended ? 'text-semantic-success hover:bg-emerald-50' : 'text-semantic-danger hover:bg-rose-50'}`}
                       title={user.isSuspended ? 'Reactivate User' : 'Suspend User'}
                     >
-                      <Ban className="w-4 h-4" />
+                      <Prohibit className="w-4 h-4" />
                     </button>
                   </td>
                 </tr>

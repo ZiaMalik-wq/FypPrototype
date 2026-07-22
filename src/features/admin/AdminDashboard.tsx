@@ -8,19 +8,7 @@ import { Button } from '@/components/common/Button';
 import { AreaVolumeChart } from '@/components/charts/AreaVolumeChart';
 import { LineTrendChart } from '@/components/charts/LineTrendChart';
 import { toast } from 'sonner';
-import {
-  Shield,
-  Users,
-  Activity,
-  Database,
-  Brain,
-  CheckCircle2,
-  AlertTriangle,
-  RefreshCw,
-  Play,
-  ScrollText,
-  Server
-} from 'lucide-react';
+import { ArrowClockwise, Brain, CheckCircle, Database, Play, Pulse, Scroll, HardDrives, Shield, Users, Warning } from '@phosphor-icons/react';
 
 export const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -46,7 +34,7 @@ export const AdminDashboard: React.FC = () => {
             variant="outline"
             size="sm"
             onClick={() => toast.success('Scraper job triggered in background queue.')}
-            leftIcon={<RefreshCw className="w-4 h-4" />}
+            leftIcon={<ArrowClockwise className="w-4 h-4" />}
           >
             Re-run Scraping
           </Button>
@@ -71,7 +59,7 @@ export const AdminDashboard: React.FC = () => {
           value={analytics.active24h}
           subtitle="23% Daily Active"
           trend="up"
-          icon={<Activity className="w-5 h-5 text-semantic-success" />}
+          icon={<Pulse className="w-5 h-5 text-semantic-success" />}
         />
         <MetricCard
           title="Daily AI Analyses"
@@ -93,7 +81,7 @@ export const AdminDashboard: React.FC = () => {
           value={analytics.nlpQueueSize}
           subtitle="Avg Latency: 140ms"
           trend="neutral"
-          icon={<Server className="w-5 h-5 text-brand-600" />}
+          icon={<HardDrives className="w-5 h-5 text-brand-600" />}
         />
         <MetricCard
           title="System Health Score"
@@ -129,7 +117,7 @@ export const AdminDashboard: React.FC = () => {
                 variant="outline"
                 size="sm"
                 onClick={() => toast.success('Flushed Redis Cache & Refreshed System Indexes.')}
-                leftIcon={<RefreshCw className="w-3.5 h-3.5" />}
+                leftIcon={<ArrowClockwise className="w-3.5 h-3.5" />}
               >
                 Clear System Cache
               </Button>
@@ -145,7 +133,7 @@ export const AdminDashboard: React.FC = () => {
                 variant="outline"
                 size="sm"
                 onClick={() => navigate('/admin/system')}
-                leftIcon={<Server className="w-3.5 h-3.5" />}
+                leftIcon={<HardDrives className="w-3.5 h-3.5" />}
               >
                 Service Monitoring
               </Button>
@@ -153,7 +141,7 @@ export const AdminDashboard: React.FC = () => {
                 variant="outline"
                 size="sm"
                 onClick={() => navigate('/admin/logs')}
-                leftIcon={<ScrollText className="w-3.5 h-3.5" />}
+                leftIcon={<Scroll className="w-3.5 h-3.5" />}
               >
                 Inspect Audit Logs
               </Button>

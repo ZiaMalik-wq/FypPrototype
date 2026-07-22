@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Badge } from '@/components/common/Badge';
 import { Button } from '@/components/common/Button';
 import { toast } from 'sonner';
-import { Activity, Server, Cpu, HardDrive, RefreshCw } from 'lucide-react';
+import { ArrowClockwise, Cpu, HardDrive, Pulse, HardDrives } from '@phosphor-icons/react';
 
 export const SystemMonitoring: React.FC = () => {
   const { systemHealth } = useAppSelector(state => state.admin);
@@ -22,7 +22,7 @@ export const SystemMonitoring: React.FC = () => {
           </p>
         </div>
 
-        <Button size="sm" variant="outline" onClick={() => toast.success('Services health re-checked.')} leftIcon={<RefreshCw className="w-4 h-4" />}>
+        <Button size="sm" variant="outline" onClick={() => toast.success('Services health re-checked.')} leftIcon={<ArrowClockwise className="w-4 h-4" />}>
           Ping Services
         </Button>
       </div>
@@ -32,7 +32,7 @@ export const SystemMonitoring: React.FC = () => {
           <Card key={service.id} hoverable className="space-y-3">
             <div className="flex items-start justify-between">
               <div className="flex items-center space-x-2">
-                <Server className="w-5 h-5 text-brand-600 shrink-0" />
+                <HardDrives className="w-5 h-5 text-brand-600 shrink-0" />
                 <h3 className="text-sm font-bold text-text-primary">{service.serviceName}</h3>
               </div>
               <Badge variant={service.status === 'Healthy' ? 'success' : 'warning'} size="sm">

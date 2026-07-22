@@ -16,10 +16,10 @@ export const GaugeChart: React.FC<GaugeChartProps> = ({
   const circumference = Math.PI * radius; // Half circle gauge
   const progress = (score / 100) * circumference;
 
-  let color = '#2563EB'; // Primary Blue
-  if (score >= 80) color = '#16A34A'; // Green
-  else if (score >= 60) color = '#D97706'; // Amber
-  else color = '#DC2626'; // Red
+  let color = '#0F4C81'; // Primary Deep Navy
+  if (score >= 80) color = '#16A34A'; // Success Green
+  else if (score >= 60) color = '#F59E0B'; // Warning Amber
+  else color = '#DC2626'; // Danger Red
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -29,7 +29,7 @@ export const GaugeChart: React.FC<GaugeChartProps> = ({
           <path
             d={`M ${strokeWidth / 2} ${size / 2} A ${radius} ${radius} 0 0 1 ${size - strokeWidth / 2} ${size / 2}`}
             fill="none"
-            stroke="#E2E8F0"
+            stroke="#DCE4EC"
             strokeWidth={strokeWidth}
             strokeLinecap="round"
           />

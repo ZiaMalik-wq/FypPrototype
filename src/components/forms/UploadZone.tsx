@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { cn, formatBytes } from '@/lib/utils';
-import { UploadCloud, FileText, CheckCircle2, AlertCircle, RefreshCw, X } from 'lucide-react';
+import { ArrowClockwise, CheckCircle, CloudArrowUp, FileText, WarningCircle, X } from '@phosphor-icons/react';
 import { Button } from '../common/Button';
 
 export interface UploadZoneProps {
@@ -74,7 +74,7 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
         />
 
         <div className="w-12 h-12 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center mb-3 shadow-subtle">
-          <UploadCloud className="w-6 h-6" />
+          <CloudArrowUp className="w-6 h-6" />
         </div>
 
         <h4 className="text-base font-semibold text-text-primary">
@@ -87,7 +87,7 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
 
         {isProcessing && (
           <div className="mt-4 flex items-center gap-2 text-xs text-brand-600 font-medium bg-brand-50 px-3 py-1.5 rounded-full">
-            <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+            <ArrowClockwise className="w-3.5 h-3.5 animate-spin" />
             AI Extracting skills from resume...
           </div>
         )}
@@ -95,7 +95,7 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
 
       {error && (
         <div className="flex items-center gap-2 text-xs font-medium text-semantic-danger bg-rose-50 border border-rose-200 p-3 rounded-sm">
-          <AlertCircle className="w-4 h-4 shrink-0" />
+          <WarningCircle className="w-4 h-4 shrink-0" />
           <span>{error}</span>
         </div>
       )}
@@ -117,7 +117,7 @@ export const UploadZone: React.FC<UploadZoneProps> = ({
           </div>
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1 text-xs font-medium text-semantic-success bg-emerald-50 px-2 py-0.5 rounded-full">
-              <CheckCircle2 className="w-3.5 h-3.5" />
+              <CheckCircle className="w-3.5 h-3.5" />
               Uploaded & Parsed
             </span>
           </div>

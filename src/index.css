@@ -4,25 +4,51 @@
 
 @layer base {
   :root {
-    --bg-primary: #F8FAFC;
+    --bg-primary: #F4F6F9;
     --surface-card: #FFFFFF;
-    --border-color: #E2E8F0;
+    --border-color: #DDE3EA;
     --text-main: #0F172A;
-    --text-muted: #64748B;
-    --brand-primary: #2563EB;
+    --text-muted: #475569;
+    --brand-primary: #1A2D42;
   }
 
   body {
     background-color: var(--bg-primary);
     color: var(--text-main);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Geist', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 40px;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 600;
   }
 }
 
 /* Custom utility & focus styles */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 focus:ring-offset-surface-bg;
+  @apply focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-surface-bg;
 }
 
 /* Custom scrollbars */
@@ -42,4 +68,10 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
+}
+
+/* Tabular mono numeric spacing for metrics */
+.font-mono-numbers {
+  font-family: 'IBM Plex Mono', 'Fira Code', monospace;
+  font-variant-numeric: tabular-nums;
 }

@@ -8,29 +8,35 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: '#EFF6FF',
-          100: '#DBEAFE',
-          500: '#3B82F6',
-          600: '#2563EB', // Primary Blue
-          700: '#1D4ED8', // Hover
-          800: '#1E40AF', // Active
+          50: '#F0F5FA',
+          100: '#DCE6F0',
+          500: '#1A2D42',
+          600: '#1A2D42', // Primary Deep Petrol Blue
+          700: '#111E2E', // Hover
+          800: '#0C1622', // Active
+        },
+        accent: {
+          500: '#10B981', // Emerald Accent
+          600: '#10B981',
+          700: '#059669', // Accent Hover
         },
         surface: {
-          bg: '#F8FAFC',
+          bg: '#F4F6F9',
           card: '#FFFFFF',
-          border: '#E2E8F0',
-          divider: '#CBD5E1',
+          sidebar: '#0B132B',
+          sidebarHover: '#1C2541',
+          border: '#DDE3EA',
         },
         text: {
           primary: '#0F172A',
-          secondary: '#64748B',
+          secondary: '#475569',
           muted: '#94A3B8',
         },
         semantic: {
-          success: '#16A34A',
-          warning: '#D97706',
-          danger: '#DC2626',
-          info: '#0284C7',
+          success: '#10B981',
+          warning: '#F59E0B',
+          danger: '#EF4444',
+          info: '#3B82F6',
         }
       },
       borderRadius: {
@@ -39,9 +45,11 @@ export default {
         'md': '12px',
         'lg': '16px',
         'xl': '24px',
+        'btn': '10px',
+        'input': '10px',
       },
       fontFamily: {
-        sans: ['Inter', 'Geist', 'system-ui', 'sans-serif'],
+        sans: ['Geist', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
         'subtle': '0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px 0 rgba(15, 23, 42, 0.03)',

@@ -30,15 +30,15 @@ export const AreaVolumeChart: React.FC<AreaVolumeChartProps> = ({ data = default
         <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <defs>
             <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#2563EB" stopOpacity={0.4} />
-              <stop offset="95%" stopColor="#2563EB" stopOpacity={0.0} />
+              <stop offset="5%" stopColor="#0F4C81" stopOpacity={0.4} />
+              <stop offset="95%" stopColor="#0F4C81" stopOpacity={0.0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#DCE4EC" />
           <XAxis dataKey="date" stroke="#64748B" fontSize={12} />
           <YAxis stroke="#64748B" fontSize={12} />
-          <Tooltip contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', borderRadius: '8px', fontSize: '12px' }} />
-          <Area type="monotone" dataKey="count" stroke="#2563EB" strokeWidth={2} fillOpacity={1} fill="url(#colorCount)" />
+          <Tooltip contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#DCE4EC', borderRadius: '8px', fontSize: '12px' }} />
+          <Area type="monotone" dataKey="count" stroke="#0F4C81" strokeWidth={2} fillOpacity={1} fill="url(#colorCount)" />
         </AreaChart>
       </ResponsiveContainer>
     </div>

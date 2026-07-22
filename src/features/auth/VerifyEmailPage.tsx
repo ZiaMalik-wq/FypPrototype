@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
-import { CheckCircle2, MailCheck } from 'lucide-react';
+import { CheckCircle, EnvelopeSimple } from '@phosphor-icons/react';
 
 export const VerifyEmailPage: React.FC = () => {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ export const VerifyEmailPage: React.FC = () => {
   return (
     <div className="space-y-6 text-center py-4">
       <div className="w-16 h-16 rounded-full bg-emerald-50 text-semantic-success flex items-center justify-center mx-auto shadow-subtle">
-        <MailCheck className="w-8 h-8" />
+        <EnvelopeSimple className="w-8 h-8" />
       </div>
 
       <div className="space-y-2">

@@ -8,7 +8,7 @@ import { loginSuccess } from '@/store/slices/authSlice';
 import { mockStudentUser, mockAdminUser } from '@/services/mockData';
 import { Button } from '@/components/common/Button';
 import { toast } from 'sonner';
-import { Mail, Lock, ArrowRight } from 'lucide-react';
+import { ArrowRight, Envelope, Lock } from '@phosphor-icons/react';
 
 const loginSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -65,7 +65,7 @@ export const LoginPage: React.FC = () => {
         <div className="space-y-1">
           <label className="text-xs font-semibold text-text-primary block">University Email Address</label>
           <div className="relative">
-            <Mail className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
+            <Envelope className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
             <input
               {...register('email')}
               type="email"

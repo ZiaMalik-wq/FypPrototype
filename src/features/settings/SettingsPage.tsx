@@ -3,15 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { toast } from 'sonner';
-import {
-  Settings,
-  Bell,
-  Lock,
-  Brain,
-  Shield,
-  Save,
-  Check
-} from 'lucide-react';
+import { Bell, Brain, Check, Gear, Lock, FloppyDisk, Shield } from '@phosphor-icons/react';
 
 export const SettingsPage: React.FC = () => {
   const [emailNotifs, setEmailNotifs] = useState(true);
@@ -32,19 +24,19 @@ export const SettingsPage: React.FC = () => {
       {/* Header Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-surface-card border border-surface-border p-6 rounded-md shadow-subtle">
         <div>
-          <h1 className="text-2xl font-bold text-text-primary tracking-tight">Account & Platform Settings</h1>
+          <h1 className="text-2xl font-bold text-text-primary tracking-tight">Account & Platform Gear</h1>
           <p className="text-xs text-text-secondary mt-1">
             Manage your AI analysis preferences, notification channels, and account security.
           </p>
         </div>
 
-        <Button size="sm" onClick={handleSave} isLoading={isSaving} leftIcon={<Save className="w-4 h-4" />}>
-          Save Changes
+        <Button size="sm" onClick={handleSave} isLoading={isSaving} leftIcon={<FloppyDisk className="w-4 h-4" />}>
+          FloppyDisk Changes
         </Button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left 60%: AI & Notification Settings */}
+        {/* Left 60%: AI & Notification Gear */}
         <div className="lg:col-span-8 space-y-6">
           <Card>
             <CardHeader>

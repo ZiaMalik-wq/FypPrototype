@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
-import { Brain } from 'lucide-react';
+import { Brain } from '@phosphor-icons/react';
 import { Toaster } from 'sonner';
 
 export const PublicLayout: React.FC = () => {

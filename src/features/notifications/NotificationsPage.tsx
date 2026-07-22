@@ -6,13 +6,7 @@ import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
-import {
-  Bell,
-  CheckCircle2,
-  AlertTriangle,
-  Info,
-  ExternalLink
-} from 'lucide-react';
+import { ArrowSquareOut, Bell, CheckCircle, Info, Warning } from '@phosphor-icons/react';
 
 export const NotificationsPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -40,7 +34,7 @@ export const NotificationsPage: React.FC = () => {
           size="sm"
           variant="outline"
           onClick={() => { dispatch(markAllAsRead()); toast.success('All notifications marked as read.'); }}
-          leftIcon={<CheckCircle2 className="w-4 h-4" />}
+          leftIcon={<CheckCircle className="w-4 h-4" />}
         >
           Mark All Read
         </Button>
@@ -85,8 +79,8 @@ export const NotificationsPage: React.FC = () => {
               >
                 <div className="flex items-start space-x-3">
                   <div className="w-8 h-8 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0 mt-0.5">
-                    {item.type === 'success' && <CheckCircle2 className="w-4 h-4 text-semantic-success" />}
-                    {item.type === 'warning' && <AlertTriangle className="w-4 h-4 text-semantic-warning" />}
+                    {item.type === 'success' && <CheckCircle className="w-4 h-4 text-semantic-success" />}
+                    {item.type === 'warning' && <Warning className="w-4 h-4 text-semantic-warning" />}
                     {item.type === 'info' && <Info className="w-4 h-4 text-brand-600" />}
                   </div>
                   <div>
@@ -97,7 +91,7 @@ export const NotificationsPage: React.FC = () => {
                 </div>
 
                 {item.link && (
-                  <Button size="sm" variant="ghost" rightIcon={<ExternalLink className="w-3.5 h-3.5" />}>
+                  <Button size="sm" variant="ghost" rightIcon={<ArrowSquareOut className="w-3.5 h-3.5" />}>
                     View
                   </Button>
                 )}

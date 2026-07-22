@@ -5,17 +5,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { toast } from 'sonner';
-import {
-  Sparkles,
-  Bookmark,
-  CheckCircle2,
-  Clock,
-  ExternalLink,
-  BookOpen,
-  Calendar,
-  Star,
-  Download
-} from 'lucide-react';
+import { ArrowSquareOut, BookOpen, Bookmark, Calendar, CheckCircle, Clock, Download, Sparkle, Star } from '@phosphor-icons/react';
 
 export const RecommendationsPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -106,7 +96,7 @@ export const RecommendationsPage: React.FC = () => {
                               className={`p-1 rounded-xs transition-colors ${rec.isCompleted ? 'text-semantic-success' : 'text-text-muted hover:text-text-primary'}`}
                               title="Mark Complete"
                             >
-                              <CheckCircle2 className="w-4 h-4" />
+                              <CheckCircle className="w-4 h-4" />
                             </button>
                           </div>
                         </div>
@@ -142,7 +132,7 @@ export const RecommendationsPage: React.FC = () => {
                                 <span className="font-semibold text-text-primary group-hover:text-brand-600 truncate max-w-[180px]">
                                   {course.title}
                                 </span>
-                                <ExternalLink className="w-3 h-3 text-text-muted shrink-0" />
+                                <ArrowSquareOut className="w-3 h-3 text-text-muted shrink-0" />
                               </div>
                               <div className="flex items-center space-x-2 text-[10px] text-text-muted mt-1">
                                 <span>{course.provider}</span>

@@ -5,15 +5,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { toast } from 'sonner';
-import {
-  Database,
-  RefreshCw,
-  CheckCircle2,
-  AlertTriangle,
-  WifiOff,
-  Globe,
-  Power
-} from 'lucide-react';
+import { ArrowClockwise, CheckCircle, Database, Globe, Power, Warning, WifiSlash } from '@phosphor-icons/react';
 
 export const JobSourceManagement: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -38,7 +30,7 @@ export const JobSourceManagement: React.FC = () => {
           </p>
         </div>
 
-        <Button size="sm" onClick={() => toast.success('Triggered sync across all active scrapers.')} leftIcon={<RefreshCw className="w-4 h-4" />}>
+        <Button size="sm" onClick={() => toast.success('Triggered sync across all active scrapers.')} leftIcon={<ArrowClockwise className="w-4 h-4" />}>
           Run All Ingestions
         </Button>
       </div>

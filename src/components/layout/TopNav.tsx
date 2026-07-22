@@ -3,17 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { markAsRead, markAllAsRead } from '@/store/slices/notificationSlice';
 import { logout } from '@/store/slices/authSlice';
-import {
-  Search,
-  Bell,
-  HelpCircle,
-  User as UserIcon,
-  LogOut,
-  Settings,
-  Shield,
-  CheckCircle2,
-  ExternalLink
-} from 'lucide-react';
+import { ArrowSquareOut, Bell, CheckCircle, Gear, MagnifyingGlass, Question, Shield, SignOut, User as UserIcon } from '@phosphor-icons/react';
 
 export interface TopNavProps {
   onOpenCommandK: () => void;
@@ -32,15 +22,15 @@ export const TopNav: React.FC<TopNavProps> = ({ onOpenCommandK }) => {
 
   return (
     <header className="h-16 bg-surface-card border-b border-surface-border sticky top-0 z-20 px-6 flex items-center justify-between shadow-subtle">
-      {/* Global Search Bar Button */}
+      {/* Global MagnifyingGlass Bar Button */}
       <div className="flex items-center flex-1 max-w-md">
         <button
           onClick={onOpenCommandK}
           className="w-full flex items-center justify-between px-3.5 py-2 bg-slate-50 border border-surface-border rounded-sm text-sm text-text-muted hover:bg-slate-100 hover:border-slate-300 transition-colors focus-ring"
         >
           <div className="flex items-center space-x-2">
-            <Search className="w-4 h-4 text-text-muted" />
-            <span>Search features, skills, reports...</span>
+            <MagnifyingGlass className="w-4 h-4 text-text-muted" />
+            <span>MagnifyingGlass features, skills, reports...</span>
           </div>
           <kbd className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-semibold text-text-muted bg-white border border-slate-200 rounded-xs shadow-2xs">
             Ctrl + K
@@ -56,7 +46,7 @@ export const TopNav: React.FC<TopNavProps> = ({ onOpenCommandK }) => {
           className="p-2 text-text-secondary hover:text-brand-600 hover:bg-slate-50 rounded-sm transition-colors focus-ring"
           title="Help & Documentation"
         >
-          <HelpCircle className="w-5 h-5" />
+          <Question className="w-5 h-5" />
         </button>
 
         {/* Notifications Icon + Popover */}
@@ -152,8 +142,8 @@ export const TopNav: React.FC<TopNavProps> = ({ onOpenCommandK }) => {
                 onClick={() => { navigate('/settings'); setIsUserMenuOpen(false); }}
                 className="w-full px-4 py-2 text-left text-sm text-text-secondary hover:bg-slate-50 hover:text-text-primary flex items-center space-x-2"
               >
-                <Settings className="w-4 h-4" />
-                <span>Settings</span>
+                <Gear className="w-4 h-4" />
+                <span>Gear</span>
               </button>
 
               {user?.role === 'SystemAdmin' && (
@@ -171,7 +161,7 @@ export const TopNav: React.FC<TopNavProps> = ({ onOpenCommandK }) => {
                   onClick={() => { dispatch(logout()); navigate('/login'); }}
                   className="w-full px-4 py-2 text-left text-sm text-semantic-danger hover:bg-rose-50 flex items-center space-x-2 font-medium"
                 >
-                  <LogOut className="w-4 h-4" />
+                  <SignOut className="w-4 h-4" />
                   <span>Sign Out</span>
                 </button>
               </div>

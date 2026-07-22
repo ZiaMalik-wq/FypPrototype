@@ -3,18 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
 import { Card } from '@/components/common/Card';
 import { Badge } from '@/components/common/Badge';
-import {
-  Brain,
-  FileText,
-  TrendingUp,
-  Sparkles,
-  ChevronDown,
-  ArrowRight,
-  BarChart3,
-  ShieldCheck,
-  CheckCircle,
-  GraduationCap
-} from 'lucide-react';
+import { ArrowRight, Brain, ChartBar, CheckCircle, CaretDown, FileText, GraduationCap, ShieldCheck, Sparkle, TrendUp } from '@phosphor-icons/react';
 
 export const LandingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -39,17 +28,17 @@ export const LandingPage: React.FC = () => {
       description: 'Quantify your missing skills against real-time industry demands with radar visualizations and priority matrices.'
     },
     {
-      icon: TrendingUp,
+      icon: TrendUp,
       title: 'Live Labor Market Analytics',
       description: 'Track emerging technologies, demand velocity, and regional hiring patterns across top tech employers.'
     },
     {
-      icon: Sparkles,
+      icon: Sparkle,
       title: 'Actionable Learning Roadmaps',
       description: 'Receive quarter-by-quarter learning goals and curated course recommendations tailored to your targeted role.'
     },
     {
-      icon: BarChart3,
+      icon: ChartBar,
       title: 'Curriculum & Academic Alignment',
       description: 'Provide academic counselors and departments with evidence-based data to align learning outcomes with market needs.'
     },
@@ -93,7 +82,7 @@ export const LandingPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             <Badge variant="brand" className="py-1 px-3">
-              <Sparkles className="w-3.5 h-3.5 mr-1" />
+              <Sparkle className="w-3.5 h-3.5 mr-1" />
               AI Decision-Support System v1.0
             </Badge>
 
@@ -247,7 +236,7 @@ export const LandingPage: React.FC = () => {
                 className="w-full flex items-center justify-between p-4 text-left font-semibold text-sm text-text-primary hover:bg-slate-50 transition-colors"
               >
                 <span>{faq.q}</span>
-                <ChevronDown className={`w-4 h-4 text-text-muted transition-transform ${openFaqIndex === idx ? 'rotate-180' : ''}`} />
+                <CaretDown className={`w-4 h-4 text-text-muted transition-transform ${openFaqIndex === idx ? 'rotate-180' : ''}`} />
               </button>
               {openFaqIndex === idx && (
                 <div className="p-4 pt-0 text-xs text-text-secondary leading-relaxed border-t border-slate-100">

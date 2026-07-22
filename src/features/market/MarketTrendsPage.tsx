@@ -8,17 +8,7 @@ import { Dialog } from '@/components/common/Dialog';
 import { LineTrendChart } from '@/components/charts/LineTrendChart';
 import { HorizontalBarChart } from '@/components/charts/HorizontalBarChart';
 import { DonutChart } from '@/components/charts/DonutChart';
-import {
-  TrendingUp,
-  Briefcase,
-  Layers,
-  DollarSign,
-  Filter,
-  Search,
-  ExternalLink,
-  MapPin,
-  Calendar
-} from 'lucide-react';
+import { ArrowSquareOut, Briefcase, Calendar, CurrencyDollar, Funnel, Stack, MagnifyingGlass, MapPin, TrendUp } from '@phosphor-icons/react';
 
 export const MarketTrendsPage: React.FC = () => {
   const { data: marketData } = useAppSelector(state => state.market);
@@ -41,7 +31,7 @@ export const MarketTrendsPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Global Market Filter Bar */}
+        {/* Global Market Funnel Bar */}
         <div className="flex items-center space-x-2">
           <div className="flex items-center space-x-1 bg-slate-50 border border-surface-border px-3 py-1.5 rounded-sm text-xs">
             <Calendar className="w-3.5 h-3.5 text-text-muted" />
@@ -86,28 +76,28 @@ export const MarketTrendsPage: React.FC = () => {
           value={marketData.activeTechnologiesCount}
           subtitle="Normalized Taxonomies"
           trend="neutral"
-          icon={<Layers className="w-5 h-5 text-brand-600" />}
+          icon={<Stack className="w-5 h-5 text-brand-600" />}
         />
         <MetricCard
           title="Fastest Growing Skill"
           value={marketData.fastestGrowingSkill}
           change="+18.5% demand surge"
           trend="up"
-          icon={<TrendingUp className="w-5 h-5 text-semantic-success" />}
+          icon={<TrendUp className="w-5 h-5 text-semantic-success" />}
         />
         <MetricCard
           title="Avg Salary Band"
           value={marketData.averageSalaryTrend}
           subtitle="Full-Stack Roles"
           trend="up"
-          icon={<DollarSign className="w-5 h-5 text-brand-600" />}
+          icon={<CurrencyDollar className="w-5 h-5 text-brand-600" />}
         />
         <MetricCard
           title="Weekly Hiring Index"
           value={`+${marketData.weeklyGrowthPercentage}%`}
           subtitle="Demand Velocity"
           trend="up"
-          icon={<TrendingUp className="w-5 h-5 text-semantic-success" />}
+          icon={<TrendUp className="w-5 h-5 text-semantic-success" />}
         />
       </div>
 

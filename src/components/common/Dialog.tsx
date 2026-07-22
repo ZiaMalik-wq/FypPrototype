@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { X } from 'lucide-react';
+import { X } from '@phosphor-icons/react';
 import { Button } from './Button';
 
 export interface DialogProps {

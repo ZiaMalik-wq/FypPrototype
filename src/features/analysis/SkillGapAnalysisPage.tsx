@@ -11,20 +11,7 @@ import { GaugeChart } from '@/components/charts/GaugeChart';
 import { SkillRadarChart } from '@/components/charts/RadarChart';
 import { Dialog } from '@/components/common/Dialog';
 import { toast } from 'sonner';
-import {
-  Brain,
-  Play,
-  FileSpreadsheet,
-  CheckCircle2,
-  AlertTriangle,
-  Sparkles,
-  ArrowRight,
-  RefreshCw,
-  Zap,
-  Clock,
-  ShieldCheck,
-  Download
-} from 'lucide-react';
+import { ArrowClockwise, ArrowRight, Brain, CheckCircle, Clock, Download, FileCsv, Lightning, Play, ShieldCheck, Sparkle, Warning } from '@phosphor-icons/react';
 
 export const SkillGapAnalysisPage: React.FC = () => {
   const navigate = useNavigate();
@@ -71,7 +58,7 @@ export const SkillGapAnalysisPage: React.FC = () => {
             variant="outline"
             size="sm"
             onClick={() => setIsExportDialogOpen(true)}
-            leftIcon={<FileSpreadsheet className="w-4 h-4" />}
+            leftIcon={<FileCsv className="w-4 h-4" />}
           >
             Export Gap Report
           </Button>
@@ -92,7 +79,7 @@ export const SkillGapAnalysisPage: React.FC = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between text-xs font-semibold text-brand-700">
               <span className="flex items-center">
-                <RefreshCw className="w-4 h-4 animate-spin mr-1.5" />
+                <ArrowClockwise className="w-4 h-4 animate-spin mr-1.5" />
                 Executing NLP Analysis Pipeline Step {analysisProgressStep} of 5
               </span>
               <span>{analysisProgressStep * 20}% Completed</span>
@@ -125,21 +112,21 @@ export const SkillGapAnalysisPage: React.FC = () => {
           value={`${gapResult.resumeScore}/100`}
           subtitle="Valid PDF Architecture"
           trend="neutral"
-          icon={<CheckCircle2 className="w-5 h-5 text-semantic-success" />}
+          icon={<CheckCircle className="w-5 h-5 text-semantic-success" />}
         />
         <MetricCard
           title="Verified Skills"
           value={gapResult.totalSkillsIdentified}
           subtitle="Extracted & Normalized"
           trend="neutral"
-          icon={<Zap className="w-5 h-5 text-brand-600" />}
+          icon={<Lightning className="w-5 h-5 text-brand-600" />}
         />
         <MetricCard
           title="Missing Skills Count"
           value={gapResult.missingSkillsCount}
           subtitle="Deficiencies Detected"
           trend="down"
-          icon={<AlertTriangle className="w-5 h-5 text-semantic-danger" />}
+          icon={<Warning className="w-5 h-5 text-semantic-danger" />}
         />
         <MetricCard
           title="Confidence Score"
@@ -159,7 +146,7 @@ export const SkillGapAnalysisPage: React.FC = () => {
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
                 <CardTitle className="text-base flex items-center space-x-2">
-                  <AlertTriangle className="w-4 h-4 text-semantic-warning" />
+                  <Warning className="w-4 h-4 text-semantic-warning" />
                   <span>Identified Missing Competencies</span>
                 </CardTitle>
                 <CardDescription>Ranked by current labor market demand and career impact</CardDescription>
@@ -229,10 +216,10 @@ export const SkillGapAnalysisPage: React.FC = () => {
           </Card>
 
           {/* AI Reasoning Summary */}
-          <Card className="bg-gradient-to-br from-surface-card to-brand-50/30">
+          <Card className="border border-surface-border bg-surface-card">
             <CardHeader>
               <CardTitle className="text-base flex items-center space-x-2 text-brand-700">
-                <Sparkles className="w-4 h-4 text-brand-600" />
+                <Sparkle className="w-4 h-4 text-brand-600" />
                 <span>Explainable AI Insights</span>
               </CardTitle>
             </CardHeader>

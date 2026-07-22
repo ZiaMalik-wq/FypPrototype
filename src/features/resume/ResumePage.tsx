@@ -5,16 +5,7 @@ import { Badge } from '@/components/common/Badge';
 import { UploadZone } from '@/components/forms/UploadZone';
 import { mockResume } from '@/services/mockData';
 import { toast } from 'sonner';
-import {
-  FileText,
-  Download,
-  Trash2,
-  RefreshCw,
-  CheckCircle2,
-  Sparkles,
-  Eye,
-  AlertCircle
-} from 'lucide-react';
+import { ArrowClockwise, CheckCircle, Download, Eye, FileText, Sparkle, Trash, WarningCircle } from '@phosphor-icons/react';
 
 export const ResumePage: React.FC = () => {
   const [resume, setResume] = useState(mockResume);
@@ -57,7 +48,7 @@ export const ResumePage: React.FC = () => {
         </div>
 
         <div className="flex items-center space-x-3">
-          <Button variant="outline" size="sm" onClick={handleDelete} leftIcon={<Trash2 className="w-4 h-4 text-semantic-danger" />}>
+          <Button variant="outline" size="sm" onClick={handleDelete} leftIcon={<Trash className="w-4 h-4 text-semantic-danger" />}>
             Delete Resume
           </Button>
           <Button size="sm" leftIcon={<Download className="w-4 h-4" />}>
@@ -95,7 +86,7 @@ export const ResumePage: React.FC = () => {
                 <CardDescription>Status: {resume.status}</CardDescription>
               </div>
               <Badge variant="success" size="md">
-                <CheckCircle2 className="w-3.5 h-3.5 mr-1" /> Ready for Analysis
+                <CheckCircle className="w-3.5 h-3.5 mr-1" /> Ready for Analysis
               </Badge>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -115,7 +106,7 @@ export const ResumePage: React.FC = () => {
               </div>
 
               <div className="p-4 bg-brand-50/50 border border-brand-100 rounded-sm flex items-start space-x-3 text-xs text-brand-700">
-                <Sparkles className="w-4 h-4 shrink-0 mt-0.5" />
+                <Sparkle className="w-4 h-4 shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold">NLP Extraction Summary</p>
                   <p className="mt-0.5">

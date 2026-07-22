@@ -5,20 +5,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { toast } from 'sonner';
-import {
-  User as UserIcon,
-  Mail,
-  Phone,
-  MapPin,
-  GraduationCap,
-  Briefcase,
-  Award,
-  Globe,
-  Github,
-  Linkedin,
-  Save,
-  CheckCircle2
-} from 'lucide-react';
+import { Medal, Briefcase, CheckCircle, Envelope, GithubLogo, Globe, GraduationCap, LinkedinLogo, MapPin, Phone, FloppyDisk, User as UserIcon } from '@phosphor-icons/react';
 
 export const ProfilePage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -64,8 +51,8 @@ export const ProfilePage: React.FC = () => {
         </div>
 
         <div className="flex items-center space-x-2">
-          <Button size="sm" onClick={handleSave} isLoading={isSaving} leftIcon={<Save className="w-4 h-4" />}>
-            Save Profile
+          <Button size="sm" onClick={handleSave} isLoading={isSaving} leftIcon={<FloppyDisk className="w-4 h-4" />}>
+            FloppyDisk Profile
           </Button>
         </div>
       </div>
@@ -191,7 +178,7 @@ export const ProfilePage: React.FC = () => {
             <CardContent className="space-y-3">
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-text-primary flex items-center">
-                  <Linkedin className="w-3.5 h-3.5 mr-1 text-blue-600" /> LinkedIn URL
+                  <LinkedinLogo className="w-3.5 h-3.5 mr-1 text-blue-600" /> LinkedIn URL
                 </label>
                 <input
                   type="url"
@@ -203,7 +190,7 @@ export const ProfilePage: React.FC = () => {
 
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-text-primary flex items-center">
-                  <Github className="w-3.5 h-3.5 mr-1 text-slate-800" /> GitHub URL
+                  <GithubLogo className="w-3.5 h-3.5 mr-1 text-slate-800" /> GitHub URL
                 </label>
                 <input
                   type="url"
@@ -231,7 +218,7 @@ export const ProfilePage: React.FC = () => {
           <Card>
             <CardHeader>
               <CardTitle className="text-base flex items-center space-x-2">
-                <Award className="w-4 h-4 text-brand-600" />
+                <Medal className="w-4 h-4 text-brand-600" />
                 <span>Certifications</span>
               </CardTitle>
             </CardHeader>

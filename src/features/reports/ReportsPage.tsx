@@ -5,17 +5,9 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { Dialog } from '@/components/common/Dialog';
+import { EmptyState } from '@/components/common/EmptyState';
 import { toast } from 'sonner';
-import {
-  FileSpreadsheet,
-  Download,
-  Trash2,
-  Search,
-  Eye,
-  Plus,
-  FileText,
-  CheckCircle2
-} from 'lucide-react';
+import { CheckCircle, Download, Eye, FileCsv, FileText, MagnifyingGlass, Plus, Trash } from '@phosphor-icons/react';
 
 export const ReportsPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -57,13 +49,13 @@ export const ReportsPage: React.FC = () => {
         </Button>
       </div>
 
-      {/* Toolbar Search */}
+      {/* Toolbar MagnifyingGlass */}
       <div className="flex items-center justify-between bg-surface-card border border-surface-border p-4 rounded-md shadow-subtle">
         <div className="relative w-full max-w-md">
-          <Search className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
+          <MagnifyingGlass className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
           <input
             type="text"
-            placeholder="Search reports by title or type..."
+            placeholder="MagnifyingGlass reports by title or type..."
             value={searchQuery}
             onChange={e => dispatch(setSearchQuery(e.target.value))}
             className="w-full pl-9 pr-3 py-1.5 text-sm bg-slate-50 border border-surface-border rounded-sm focus-ring placeholder:text-text-muted"
@@ -73,8 +65,19 @@ export const ReportsPage: React.FC = () => {
 
       {/* Reports Enterprise Table */}
       <Card className="overflow-hidden p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-text-secondary">
+        {filteredReports.length === 0 ? (
+          <div className="p-6">
+            <EmptyState
+              illustration="reports"
+              title="No reports found"
+              description="Generate a new report or adjust your search filter."
+              actionText="Generate New Report"
+              onAction={() => toast.success('New report generated and added to library.')}
+            />
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs text-text-secondary">
             <thead className="bg-slate-50 border-b border-surface-border text-text-primary font-semibold uppercase tracking-wider text-[11px]">
               <tr>
                 <th className="p-4">Report Title</th>
@@ -120,14 +123,15 @@ export const ReportsPage: React.FC = () => {
                       className="p-1.5 text-semantic-danger hover:bg-rose-50 rounded-xs transition-colors"
                       title="Delete Report"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash className="w-4 h-4" />
                     </button>
                   </td>
                 </tr>
               ))}
             </tbody>
-          </table>
-        </div>
+            </table>
+          </div>
+        )}
       </Card>
 
       {/* Report Preview Modal */}

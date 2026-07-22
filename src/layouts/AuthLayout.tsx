@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import { Brain, CheckCircle2, TrendingUp, ShieldCheck } from 'lucide-react';
+import { Brain, CheckCircle, ShieldCheck, TrendUp } from '@phosphor-icons/react';
 import { Toaster } from 'sonner';
 
 export const AuthLayout: React.FC = () => {
@@ -30,11 +30,11 @@ export const AuthLayout: React.FC = () => {
 
             <div className="space-y-3 text-xs text-slate-300">
               <div className="flex items-center space-x-2.5">
-                <CheckCircle2 className="w-4 h-4 text-brand-400 shrink-0" />
+                <CheckCircle className="w-4 h-4 text-brand-400 shrink-0" />
                 <span>NLP-based resume skill extraction & normalization</span>
               </div>
               <div className="flex items-center space-x-2.5">
-                <TrendingUp className="w-4 h-4 text-brand-400 shrink-0" />
+                <TrendUp className="w-4 h-4 text-brand-400 shrink-0" />
                 <span>Live tech demand trends from 14,000+ job listings</span>
               </div>
               <div className="flex items-center space-x-2.5">

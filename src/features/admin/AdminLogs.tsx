@@ -3,7 +3,7 @@ import { useAppSelector } from '@/store';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/common/Card';
 import { Badge } from '@/components/common/Badge';
 import { Dialog } from '@/components/common/Dialog';
-import { ScrollText, Search, Eye, Filter } from 'lucide-react';
+import { Eye, Funnel, MagnifyingGlass, Scroll } from '@phosphor-icons/react';
 
 export const AdminLogs: React.FC = () => {
   const { auditLogs } = useAppSelector(state => state.admin);
@@ -35,13 +35,13 @@ export const AdminLogs: React.FC = () => {
         </div>
       </div>
 
-      {/* Toolbar Filter */}
+      {/* Toolbar Funnel */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-card border border-surface-border p-4 rounded-md shadow-subtle">
         <div className="relative w-full max-w-md">
-          <Search className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
+          <MagnifyingGlass className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
           <input
             type="text"
-            placeholder="Search by user, action, or module..."
+            placeholder="MagnifyingGlass by user, action, or module..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             className="w-full pl-9 pr-3 py-1.5 text-sm bg-slate-50 border border-surface-border rounded-sm focus-ring placeholder:text-text-muted"

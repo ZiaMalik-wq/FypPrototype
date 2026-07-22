@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronRight, Home } from 'lucide-react';
+import { CaretRight, House } from '@phosphor-icons/react';
 
 export const Breadcrumb: React.FC = () => {
   const location = useLocation();
@@ -28,8 +28,8 @@ export const Breadcrumb: React.FC = () => {
   return (
     <nav aria-label="Breadcrumb" className="flex items-center space-x-1 text-xs text-text-secondary mb-4">
       <Link to="/dashboard" className="flex items-center hover:text-brand-600 transition-colors">
-        <Home className="w-3.5 h-3.5 mr-1" />
-        <span>Home</span>
+        <House className="w-3.5 h-3.5 mr-1" />
+        <span>House</span>
       </Link>
       {pathnames.map((name, index) => {
         const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
@@ -38,7 +38,7 @@ export const Breadcrumb: React.FC = () => {
 
         return (
           <React.Fragment key={routeTo}>
-            <ChevronRight className="w-3.5 h-3.5 text-text-muted shrink-0" />
+            <CaretRight className="w-3.5 h-3.5 text-text-muted shrink-0" />
             {isLast ? (
               <span className="font-semibold text-text-primary truncate">{displayName}</span>
             ) : (

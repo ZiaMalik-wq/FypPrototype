@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/common/Button';
-import { Mail, CheckCircle2, ArrowLeft } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Envelope } from '@phosphor-icons/react';
 import { toast } from 'sonner';
 
 export const ForgotPasswordPage: React.FC = () => {
@@ -30,7 +30,7 @@ export const ForgotPasswordPage: React.FC = () => {
 
       {isSent ? (
         <div className="p-6 bg-brand-50 border border-brand-200 rounded-sm text-center space-y-3">
-          <CheckCircle2 className="w-10 h-10 text-brand-600 mx-auto" />
+          <CheckCircle className="w-10 h-10 text-brand-600 mx-auto" />
           <h4 className="text-sm font-semibold text-text-primary">Check Your Inbox</h4>
           <p className="text-xs text-text-secondary">
             We sent a password recovery link to <span className="font-semibold">{email}</span>.
@@ -44,7 +44,7 @@ export const ForgotPasswordPage: React.FC = () => {
           <div className="space-y-1">
             <label className="text-xs font-semibold text-text-primary block">Email Address</label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
+              <Envelope className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
               <input
                 type="email"
                 required

@@ -6,17 +6,9 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Button } from '@/components/common/Button';
 import { Badge } from '@/components/common/Badge';
 import { Dialog } from '@/components/common/Dialog';
+import { EmptyState } from '@/components/common/EmptyState';
 import { toast } from 'sonner';
-import {
-  Boxes,
-  Plus,
-  Search,
-  Trash2,
-  Edit2,
-  CheckCircle2,
-  Tag,
-  Filter
-} from 'lucide-react';
+import { CheckCircle, Funnel, MagnifyingGlass, Pencil, Plus, Tag, Trash } from '@phosphor-icons/react';
 
 export const SkillsPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -88,13 +80,13 @@ export const SkillsPage: React.FC = () => {
         </Button>
       </div>
 
-      {/* Toolbar: Search & Category Filter */}
+      {/* Toolbar: MagnifyingGlass & Category Funnel */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-card border border-surface-border p-4 rounded-md shadow-subtle">
         <div className="relative flex-1 w-full max-w-md">
-          <Search className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
+          <MagnifyingGlass className="w-4 h-4 text-text-muted absolute left-3 top-2.5" />
           <input
             type="text"
-            placeholder="Search skills (e.g. React, Docker, Python)..."
+            placeholder="MagnifyingGlass skills (e.g. React, Docker, Python)..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             className="w-full pl-9 pr-3 py-1.5 text-sm bg-slate-50 border border-surface-border rounded-sm focus-ring placeholder:text-text-muted"
@@ -131,10 +123,14 @@ export const SkillsPage: React.FC = () => {
       {/* Skills Grid Grouped by Category */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredSkills.length === 0 ? (
-          <div className="col-span-full text-center py-12 bg-surface-card border border-surface-border rounded-md">
-            <Boxes className="w-8 h-8 text-text-muted mx-auto mb-2" />
-            <p className="text-sm font-semibold text-text-primary">No skills found</p>
-            <p className="text-xs text-text-secondary">Try adjusting your search query or filter.</p>
+          <div className="col-span-full">
+            <EmptyState
+              illustration="default"
+              title="No skills found"
+              description="Try adjusting your search query or category filter."
+              actionText="Add Custom Skill"
+              onAction={() => setIsAddModalOpen(true)}
+            />
           </div>
         ) : (
           filteredSkills.map(skill => (
@@ -175,7 +171,7 @@ export const SkillsPage: React.FC = () => {
                   className="p-1 text-semantic-danger hover:bg-rose-50 rounded-xs transition-colors"
                   title="Remove skill"
                 >
-                  <Trash2 className="w-4 h-4" />
+                  <Trash className="w-4 h-4" />
                 </button>
               </div>
             </Card>

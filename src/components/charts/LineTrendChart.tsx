@@ -26,14 +26,14 @@ export const LineTrendChart: React.FC<LineTrendChartProps> = ({ data = defaultTr
     <div className="w-full h-72">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#DCE4EC" />
           <XAxis dataKey="period" stroke="#64748B" fontSize={12} />
           <YAxis stroke="#64748B" fontSize={12} />
-          <Tooltip contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', borderRadius: '8px', fontSize: '12px' }} />
+          <Tooltip contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#DCE4EC', borderRadius: '8px', fontSize: '12px' }} />
           <Legend wrapperStyle={{ fontSize: '12px', paddingTop: '10px' }} />
-          <Line type="monotone" dataKey="React" stroke="#2563EB" strokeWidth={2.5} dot={{ r: 4 }} />
-          <Line type="monotone" dataKey="ASPNET" stroke="#16A34A" strokeWidth={2.5} dot={{ r: 4 }} />
-          <Line type="monotone" dataKey="Docker" stroke="#D97706" strokeWidth={2.5} dot={{ r: 4 }} />
+          <Line type="monotone" dataKey="React" stroke="#0F4C81" strokeWidth={2.5} dot={{ r: 4 }} />
+          <Line type="monotone" dataKey="ASPNET" stroke="#10B981" strokeWidth={2.5} dot={{ r: 4 }} />
+          <Line type="monotone" dataKey="Docker" stroke="#F59E0B" strokeWidth={2.5} dot={{ r: 4 }} />
         </LineChart>
       </ResponsiveContainer>
     </div>

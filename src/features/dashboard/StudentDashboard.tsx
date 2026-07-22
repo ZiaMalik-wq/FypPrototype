@@ -7,19 +7,7 @@ import { MetricCard } from '@/components/common/MetricCard';
 import { Badge } from '@/components/common/Badge';
 import { GaugeChart } from '@/components/charts/GaugeChart';
 import { SkillRadarChart } from '@/components/charts/RadarChart';
-import {
-  Brain,
-  FileText,
-  Boxes,
-  Sparkles,
-  TrendingUp,
-  ArrowRight,
-  Clock,
-  CheckCircle2,
-  AlertTriangle,
-  Play,
-  Upload
-} from 'lucide-react';
+import { ArrowRight, Brain, CheckCircle, Clock, FileText, Package, Play, Sparkle, TrendUp, Upload, Warning } from '@phosphor-icons/react';
 
 export const StudentDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -75,7 +63,7 @@ export const StudentDashboard: React.FC = () => {
           value={skills.length}
           subtitle="9 from Resume + 1 Manual"
           trend="neutral"
-          icon={<Boxes className="w-5 h-5 text-brand-600" />}
+          icon={<Package className="w-5 h-5 text-brand-600" />}
           onClick={() => navigate('/skills')}
         />
         <MetricCard
@@ -84,7 +72,7 @@ export const StudentDashboard: React.FC = () => {
           subtitle="2 High Priority Gaps"
           change="-1 resolved"
           trend="up"
-          icon={<AlertTriangle className="w-5 h-5 text-semantic-warning" />}
+          icon={<Warning className="w-5 h-5 text-semantic-warning" />}
           onClick={() => navigate('/analysis')}
         />
         <MetricCard
@@ -101,7 +89,7 @@ export const StudentDashboard: React.FC = () => {
           subtitle="Full-Stack Engineer"
           change="+18% Q3 Growth"
           trend="up"
-          icon={<TrendingUp className="w-5 h-5 text-semantic-success" />}
+          icon={<TrendUp className="w-5 h-5 text-semantic-success" />}
           onClick={() => navigate('/market-trends')}
         />
       </div>
@@ -136,7 +124,7 @@ export const StudentDashboard: React.FC = () => {
             <CardHeader className="flex flex-row items-center justify-between">
               <div>
                 <CardTitle className="flex items-center space-x-2 text-base">
-                  <Sparkles className="w-4 h-4 text-brand-600" />
+                  <Sparkle className="w-4 h-4 text-brand-600" />
                   <span>AI Learning Recommendations</span>
                 </CardTitle>
                 <CardDescription>Highest impact learning goals to reach 95%+ Market Match</CardDescription>
@@ -173,10 +161,10 @@ export const StudentDashboard: React.FC = () => {
         {/* Right Column (30%) */}
         <div className="lg:col-span-4 space-y-6">
           {/* Profile Completion Widget */}
-          <Card className="bg-gradient-to-br from-surface-card to-slate-50">
+          <Card className="border border-surface-border bg-surface-card">
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-semibold text-text-primary uppercase tracking-wider">Profile Strength</span>
-              <span className="text-sm font-extrabold text-brand-600">88%</span>
+              <span className="text-sm font-extrabold text-brand-600 font-mono-numbers">88%</span>
             </div>
             <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden mb-3">
               <div className="h-full bg-brand-600 w-[88%]" />
@@ -197,7 +185,7 @@ export const StudentDashboard: React.FC = () => {
             <CardContent className="space-y-4">
               <div className="flex items-start space-x-3 text-xs">
                 <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <CheckCircle className="w-3.5 h-3.5" />
                 </div>
                 <div>
                   <p className="font-medium text-text-primary">Executed Skill Gap Analysis</p>
@@ -217,7 +205,7 @@ export const StudentDashboard: React.FC = () => {
 
               <div className="flex items-start space-x-3 text-xs">
                 <div className="w-6 h-6 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
-                  <Sparkles className="w-3.5 h-3.5" />
+                  <Sparkle className="w-3.5 h-3.5" />
                 </div>
                 <div>
                   <p className="font-medium text-text-primary">Saved Docker Learning Goal</p>

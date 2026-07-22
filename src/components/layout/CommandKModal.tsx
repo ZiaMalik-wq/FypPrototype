@@ -1,21 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Search,
-  LayoutDashboard,
-  User,
-  FileText,
-  Brain,
-  Sparkles,
-  TrendingUp,
-  FileSpreadsheet,
-  Settings,
-  Shield,
-  Users,
-  Database,
-  Activity,
-  ArrowRight
-} from 'lucide-react';
+import { ArrowRight, Brain, Database, FileCsv, FileText, Gear, MagnifyingGlass, Pulse, Shield, Sparkle, SquaresFour, TrendUp, User, Users } from '@phosphor-icons/react';
 
 export interface CommandKModalProps {
   isOpen: boolean;
@@ -41,18 +26,18 @@ export const CommandKModal: React.FC<CommandKModalProps> = ({ isOpen, onClose })
   if (!isOpen) return null;
 
   const items = [
-    { title: 'Student Dashboard', path: '/dashboard', category: 'Student Portal', icon: <LayoutDashboard className="w-4 h-4" /> },
+    { title: 'Student Dashboard', path: '/dashboard', category: 'Student Portal', icon: <SquaresFour className="w-4 h-4" /> },
     { title: 'My Profile & Education', path: '/profile', category: 'Student Portal', icon: <User className="w-4 h-4" /> },
     { title: 'Resume Management', path: '/resume', category: 'Student Portal', icon: <FileText className="w-4 h-4" /> },
     { title: 'Skill Gap Analysis', path: '/analysis', category: 'AI Features', icon: <Brain className="w-4 h-4" /> },
-    { title: 'AI Recommendations Roadmap', path: '/recommendations', category: 'AI Features', icon: <Sparkles className="w-4 h-4" /> },
-    { title: 'Market Trends Dashboard', path: '/market-trends', category: 'Labor Intelligence', icon: <TrendingUp className="w-4 h-4" /> },
-    { title: 'Historical Reports & PDF Export', path: '/reports', category: 'Reports', icon: <FileSpreadsheet className="w-4 h-4" /> },
-    { title: 'Account Settings', path: '/settings', category: 'User Settings', icon: <Settings className="w-4 h-4" /> },
+    { title: 'AI Recommendations Roadmap', path: '/recommendations', category: 'AI Features', icon: <Sparkle className="w-4 h-4" /> },
+    { title: 'Market Trends Dashboard', path: '/market-trends', category: 'Labor Intelligence', icon: <TrendUp className="w-4 h-4" /> },
+    { title: 'Historical Reports & PDF Export', path: '/reports', category: 'Reports', icon: <FileCsv className="w-4 h-4" /> },
+    { title: 'Account Gear', path: '/settings', category: 'User Gear', icon: <Gear className="w-4 h-4" /> },
     { title: 'Admin Overview', path: '/admin', category: 'Administration', icon: <Shield className="w-4 h-4" /> },
     { title: 'User Management', path: '/admin/users', category: 'Administration', icon: <Users className="w-4 h-4" /> },
     { title: 'Job Sources & Scraping', path: '/admin/job-sources', category: 'Administration', icon: <Database className="w-4 h-4" /> },
-    { title: 'System Health & Monitoring', path: '/admin/system', category: 'Administration', icon: <Activity className="w-4 h-4" /> }
+    { title: 'System Health & Monitoring', path: '/admin/system', category: 'Administration', icon: <Pulse className="w-4 h-4" /> }
   ];
 
   const filteredItems = items.filter(
@@ -76,7 +61,7 @@ export const CommandKModal: React.FC<CommandKModalProps> = ({ isOpen, onClose })
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center px-4 py-3 border-b border-surface-border bg-surface-card">
-          <Search className="w-5 h-5 text-text-muted shrink-0 mr-3" />
+          <MagnifyingGlass className="w-5 h-5 text-text-muted shrink-0 mr-3" />
           <input
             type="text"
             autoFocus

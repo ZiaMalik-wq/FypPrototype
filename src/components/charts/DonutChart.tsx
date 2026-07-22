@@ -13,7 +13,7 @@ const defaultDonutData = [
   { name: 'EdTech', percentage: 8 }
 ];
 
-const COLORS = ['#2563EB', '#0284C7', '#16A34A', '#D97706', '#64748B'];
+const COLORS = ['#0F4C81', '#10B981', '#14B8A6', '#6366F1', '#F59E0B'];
 
 export const DonutChart: React.FC<DonutChartProps> = ({ data = defaultDonutData }) => {
   return (
@@ -35,7 +35,7 @@ export const DonutChart: React.FC<DonutChartProps> = ({ data = defaultDonutData 
           </Pie>
           <Tooltip
             formatter={(value: any) => [`${value}%`, 'Share']}
-            contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', borderRadius: '8px', fontSize: '12px' }}
+            contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#DCE4EC', borderRadius: '8px', fontSize: '12px' }}
           />
           <Legend wrapperStyle={{ fontSize: '12px', paddingTop: '10px' }} />
         </PieChart>

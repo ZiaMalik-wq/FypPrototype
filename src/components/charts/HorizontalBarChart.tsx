@@ -28,17 +28,18 @@ export const HorizontalBarChart: React.FC<HorizontalBarChartProps> = ({ data = d
     <div className="w-full h-72">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart layout="vertical" data={data} margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#E2E8F0" />
+          <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#DCE4EC" />
           <XAxis type="number" unit="%" stroke="#64748B" fontSize={12} />
           <YAxis dataKey="name" type="category" stroke="#64748B" fontSize={12} width={100} />
           <Tooltip
             formatter={(value: any) => [`${value}% of postings`, 'Demand Rate']}
-            contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', borderRadius: '8px', fontSize: '12px' }}
+            contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#DCE4EC', borderRadius: '8px', fontSize: '12px' }}
           />
           <Bar dataKey="percentageOfJobs" radius={[0, 4, 4, 0]}>
-            {data.map((_, index) => (
-              <Cell key={`cell-${index}`} fill={index === 0 ? '#2563EB' : index < 3 ? '#3B82F6' : '#60A5FA'} />
-            ))}
+            {data.map((_, index) => {
+              const barColors = ['#0F4C81', '#1E5A8F', '#326D9E', '#4B83B0', '#6B9DC4', '#91BDDC'];
+              return <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />;
+            })}
           </Bar>
         </BarChart>
       </ResponsiveContainer>
